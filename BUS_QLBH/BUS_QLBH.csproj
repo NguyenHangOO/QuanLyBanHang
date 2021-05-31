@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="Backup.cs" />
     <Compile Include="BaoCao.cs" />
-    <Compile Include="Connect.cs" />
     <Compile Include="InHoaDon.cs" />
     <Compile Include="KhachHang.cs" />
     <Compile Include="KhuyenMai.cs" />

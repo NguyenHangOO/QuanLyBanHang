@@ -33,13 +33,7 @@ namespace ATO_QLBH
                 return connection;
             }
         }
-        public static bool KQCN()
-        {
-            if (connection.State != null)
-                return true;
-            else
-                return false;
-        }
+       
         public static void Close()
         {
             if (connection.State == ConnectionState.Open)

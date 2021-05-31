@@ -90,10 +90,15 @@ namespace GUI_QLBH
                     {
                         tenquyen = "Quản trị";
                     } 
-                    else if(BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
+                    else
                     {
-                        tenquyen = "Quản lý";
-                    }   else tenquyen = "Nhân viên";
+                        if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
+                        {
+                            tenquyen = "Quản lý";
+                        }
+                        else tenquyen = "Nhân viên";
+                    }
+                    
                     frmTrangChu tc = new frmTrangChu();
                     this.Visible = false;
                     MessageBox.Show("Xin chào user có tên: "+frmDangNhap.USERNAME.Trim()+" - thuộc nhóm quyền: "+ tenquyen, "Thông báo");
@@ -113,13 +118,7 @@ namespace GUI_QLBH
             {
                 MessageBox.Show("Xin hãy điền đầy đủ thông tin đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }
-            if(txtUser.Text=="Username"&&txtPass.Text=="Password")
-            {
-                MessageBox.Show("Xin hãy điền đầy đủ thông tin đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-                
+            }              
         }
 
         private void chkHien_CheckedChanged(object sender, EventArgs e)

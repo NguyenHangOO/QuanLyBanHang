@@ -758,7 +758,7 @@ namespace GUI_QLBH
         {
             // frmHelp hp = new frmHelp();
             // hp.ShowDialog();
-            Help.ShowHelp(this, "file://E:\\BanNhap\\QLBH\\HDSuDung\\HDSuDung.chm");
+            Help.ShowHelp(this, "file://E:\\NopBai\\Git_QLDAPM\\QuanLyBanHang\\HDSuDung\\HDSuDung.chm");
         }
     }
 }
