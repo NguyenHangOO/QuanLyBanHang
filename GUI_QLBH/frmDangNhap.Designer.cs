@@ -48,8 +48,9 @@ namespace GUI_QLBH
             this.prcUser = new DevExpress.XtraEditors.PictureEdit();
             this.prcPass = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pcAn = new System.Windows.Forms.PictureBox();
             this.prcLogin = new DevExpress.XtraEditors.PictureEdit();
+            this.pcHien = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
@@ -60,8 +61,9 @@ namespace GUI_QLBH
             ((System.ComponentModel.ISupportInitialize)(this.prcPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcAn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcLogin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHien)).BeginInit();
             this.SuspendLayout();
             // 
             // toolbarFormControl1
@@ -69,7 +71,7 @@ namespace GUI_QLBH
             this.toolbarFormControl1.Location = new System.Drawing.Point(0, 0);
             this.toolbarFormControl1.Manager = this.toolbarFormManager1;
             this.toolbarFormControl1.Name = "toolbarFormControl1";
-            this.toolbarFormControl1.Size = new System.Drawing.Size(407, 39);
+            this.toolbarFormControl1.Size = new System.Drawing.Size(407, 31);
             this.toolbarFormControl1.TabIndex = 80;
             this.toolbarFormControl1.TabStop = false;
             this.toolbarFormControl1.TitleItemLinks.Add(this.btnConnect);
@@ -90,7 +92,7 @@ namespace GUI_QLBH
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 39);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 31);
             this.barDockControlTop.Manager = this.toolbarFormManager1;
             this.barDockControlTop.Size = new System.Drawing.Size(407, 0);
             // 
@@ -106,17 +108,17 @@ namespace GUI_QLBH
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
             this.barDockControlLeft.Manager = this.toolbarFormManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 535);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 543);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(407, 39);
+            this.barDockControlRight.Location = new System.Drawing.Point(407, 31);
             this.barDockControlRight.Manager = this.toolbarFormManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 535);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 543);
             // 
             // btnConnect
             // 
@@ -151,7 +153,7 @@ namespace GUI_QLBH
             this.txtUser.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.Properties.Appearance.Options.UseBackColor = true;
             this.txtUser.Properties.Appearance.Options.UseFont = true;
-            this.txtUser.Size = new System.Drawing.Size(284, 28);
+            this.txtUser.Size = new System.Drawing.Size(284, 26);
             this.txtUser.TabIndex = 0;
             // 
             // txtPass
@@ -162,7 +164,7 @@ namespace GUI_QLBH
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Properties.Appearance.Options.UseFont = true;
-            this.txtPass.Size = new System.Drawing.Size(284, 30);
+            this.txtPass.Size = new System.Drawing.Size(284, 26);
             this.txtPass.TabIndex = 1;
             // 
             // labelControl1
@@ -172,7 +174,7 @@ namespace GUI_QLBH
             this.labelControl1.Location = new System.Drawing.Point(42, 504);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(213, 24);
+            this.labelControl1.Size = new System.Drawing.Size(172, 19);
             this.labelControl1.TabIndex = 102;
             this.labelControl1.Text = "Don\'t have an acount?";
             // 
@@ -183,7 +185,7 @@ namespace GUI_QLBH
             this.lnkDK.Location = new System.Drawing.Point(284, 504);
             this.lnkDK.Margin = new System.Windows.Forms.Padding(4);
             this.lnkDK.Name = "lnkDK";
-            this.lnkDK.Size = new System.Drawing.Size(72, 24);
+            this.lnkDK.Size = new System.Drawing.Size(59, 19);
             this.lnkDK.TabIndex = 4;
             this.lnkDK.Text = "Sign up";
             this.lnkDK.Click += new System.EventHandler(this.lnkDK_Click);
@@ -199,7 +201,7 @@ namespace GUI_QLBH
             this.chkHien.Properties.Appearance.Options.UseFont = true;
             this.chkHien.Properties.Appearance.Options.UseForeColor = true;
             this.chkHien.Properties.Caption = "";
-            this.chkHien.Size = new System.Drawing.Size(22, 24);
+            this.chkHien.Size = new System.Drawing.Size(22, 20);
             this.chkHien.TabIndex = 2;
             this.chkHien.CheckedChanged += new System.EventHandler(this.chkHien_CheckedChanged);
             // 
@@ -238,7 +240,8 @@ namespace GUI_QLBH
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.Appearance.Options.UseBorderColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.pictureBox1);
+            this.panelControl1.Controls.Add(this.pcHien);
+            this.panelControl1.Controls.Add(this.pcAn);
             this.panelControl1.Controls.Add(this.prcPass);
             this.panelControl1.Controls.Add(this.prcUser);
             this.panelControl1.Controls.Add(this.chkHien);
@@ -251,15 +254,15 @@ namespace GUI_QLBH
             this.panelControl1.Size = new System.Drawing.Size(366, 219);
             this.panelControl1.TabIndex = 115;
             // 
-            // pictureBox1
+            // pcAn
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(86, 123);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 23);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 111;
-            this.pictureBox1.TabStop = false;
+            this.pcAn.Image = ((System.Drawing.Image)(resources.GetObject("pcAn.Image")));
+            this.pcAn.Location = new System.Drawing.Point(86, 123);
+            this.pcAn.Name = "pcAn";
+            this.pcAn.Size = new System.Drawing.Size(34, 23);
+            this.pcAn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcAn.TabIndex = 111;
+            this.pcAn.TabStop = false;
             // 
             // prcLogin
             // 
@@ -275,13 +278,23 @@ namespace GUI_QLBH
             this.prcLogin.Size = new System.Drawing.Size(145, 131);
             this.prcLogin.TabIndex = 120;
             // 
+            // pcHien
+            // 
+            this.pcHien.Image = ((System.Drawing.Image)(resources.GetObject("pcHien.Image")));
+            this.pcHien.Location = new System.Drawing.Point(86, 123);
+            this.pcHien.Name = "pcHien";
+            this.pcHien.Size = new System.Drawing.Size(34, 23);
+            this.pcHien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHien.TabIndex = 111;
+            this.pcHien.TabStop = false;
+            // 
             // frmDangNhap
             // 
             this.AcceptButton = this.btnDN;
             this.Appearance.BackColor = System.Drawing.Color.Snow;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 574);
             this.Controls.Add(this.prcLogin);
@@ -314,8 +327,9 @@ namespace GUI_QLBH
             ((System.ComponentModel.ISupportInitialize)(this.prcPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcAn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcLogin.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,6 +354,7 @@ namespace GUI_QLBH
         private DevExpress.XtraEditors.PictureEdit prcUser;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PictureEdit prcLogin;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pcAn;
+        private System.Windows.Forms.PictureBox pcHien;
     }
 }

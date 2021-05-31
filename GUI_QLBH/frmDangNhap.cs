@@ -35,7 +35,7 @@ namespace GUI_QLBH
             txtPass.Text = "Password";
             this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
-            
+            pcHien.Visible = false;
         }
         private void txtUser_Leave(object sender, EventArgs e)
         {
@@ -108,17 +108,34 @@ namespace GUI_QLBH
                 txtUser.ResetText();
                 txtPass.ResetText();
                 txtUser.Focus();
-            }    
+            }
             else
-                MessageBox.Show("Vui lòng điền thông tin đăng nhập !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            {
+                MessageBox.Show("Xin hãy điền đầy đủ thông tin đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(txtUser.Text=="Username"&&txtPass.Text=="Password")
+            {
+                MessageBox.Show("Xin hãy điền đầy đủ thông tin đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+                
         }
 
         private void chkHien_CheckedChanged(object sender, EventArgs e)
         {
             if (chkHien.Checked)
+            {
                 txtPass.Properties.UseSystemPasswordChar = false;
+                pcHien.Visible = true;
+                pcAn.Visible = false;
+            }
             else
+            {
                 txtPass.Properties.UseSystemPasswordChar = true;
+                pcAn.Visible = true;
+                pcHien.Visible = false;
+            }
         }
 
         private void lnkDK_Click(object sender, EventArgs e)
