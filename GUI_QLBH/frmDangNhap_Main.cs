@@ -29,6 +29,7 @@ namespace GUI_QLBH
             txtPass.Text = "Password";
             this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
+            txtPass.UseSystemPasswordChar = true;
         }
         private void txtUser_Leave(object sender, EventArgs e)
         {
@@ -61,7 +62,7 @@ namespace GUI_QLBH
             {
                 txtPass.Text = "";
                 txtPass.ForeColor = Color.Gray;
-                // this.txtPass.PasswordChar = '*';
+                //this.txtPass.PasswordChar = '*';
             }
         }
 
@@ -110,9 +111,9 @@ namespace GUI_QLBH
         private void chkHien_CheckedChanged(object sender, EventArgs e)
         {
             if (chkHien.Checked)
-                txtPass.UseSystemPasswordChar = true;
-            else
                 txtPass.UseSystemPasswordChar = false;
+            else
+                txtPass.UseSystemPasswordChar = true;
         }
 
         private void lnkDK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

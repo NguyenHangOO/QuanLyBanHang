@@ -27,7 +27,7 @@ namespace GUI_QLBH
             lblTongTien.Text = "..........";
             cboMaHang.Text = "";
             mrcsoluong.Text = "";
-            txtGiamGia.Text = "0";
+           // txtGiamGia.Text = "0";
             txtThanhTien.Text = "0";
         }
         private void frmLapHD_Load(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace GUI_QLBH
         {
             cboMaHang.Text = "";
             mrcsoluong.Text = "";
-            txtGiamGia.Text = "0";
+           // txtGiamGia.Text = "0";
             txtThanhTien.Text = "0";
         }
         private void btnLuu_Click(object sender, EventArgs e)
@@ -325,20 +325,21 @@ namespace GUI_QLBH
     
         private void mnuSua_Click(object sender, EventArgs e)
         {
-            int slgxoa, slgton, slgmoi,slgth;
-            float ttxoa, ttmoi, tthco,ttthem;
-            string ma = txtMaHD.Text;
-            string mahh = dtvHDBH.SelectedRows[0].Cells[0].Value.ToString();
-            slgxoa = BUS_QLBH.LoadDLBangHang.LaySlgXoa(mahh, ma);
-            slgton = BUS_QLBH.LoadDLBangHang.LaySlg(mahh);
-            slgth = Int32.Parse(mrcsoluong.Text);
-            slgmoi = (slgton + slgxoa)-slgth;
-            ttxoa = BUS_QLBH.LoadDLBangHang.LayTTXoa(mahh, ma);
-            tthco = BUS_QLBH.LoadDLBangHang.LayTongTien(ma);
-            ttthem= float.Parse(txtThanhTien.Text);
-            ttmoi = tthco - ttxoa+ttthem;
+            
             if (mrcsoluong.Text!="")
             {
+                int slgxoa, slgton, slgmoi, slgth;
+                float ttxoa, ttmoi, tthco, ttthem;
+                string ma = txtMaHD.Text;
+                string mahh = dtvHDBH.SelectedRows[0].Cells[0].Value.ToString();
+                slgxoa = BUS_QLBH.LoadDLBangHang.LaySlgXoa(mahh, ma);
+                slgton = BUS_QLBH.LoadDLBangHang.LaySlg(mahh);
+                slgth = Int32.Parse(mrcsoluong.Text);
+                slgmoi = (slgton + slgxoa) - slgth;
+                ttxoa = BUS_QLBH.LoadDLBangHang.LayTTXoa(mahh, ma);
+                tthco = BUS_QLBH.LoadDLBangHang.LayTongTien(ma);
+                ttthem = float.Parse(txtThanhTien.Text);
+                ttmoi = tthco - ttxoa + ttthem;
                 if (txtGiamGia.Text.Trim().Length == 0)
                 {
                     txtGiamGia.Text = "0";
@@ -388,7 +389,11 @@ namespace GUI_QLBH
                         
                     }    
                 }
-            }    
+            } 
+            else
+            {
+                MessageBox.Show("Chưa nhập số lượng?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            }
         }
 
         private void dtvHDBH_Click(object sender, EventArgs e)

@@ -1,0 +1,14 @@
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling e:\BanNhap\QLBH\HDSuDung\HDSuDung.chm
+
+
+Compile time: 0 minutes, 0 seconds
+4	Topics
+9	Local links
+0	Internet links
+0	Graphics
+
+
+Created e:\BanNhap\QLBH\HDSuDung\HDSuDung.chm, 1,833,352 bytes
+Compression decreased file by 323,127 bytes.

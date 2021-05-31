@@ -690,6 +690,7 @@ namespace GUI_QLBH
             // brbtnTienMat
             // 
             this.brbtnTienMat.Caption = "Sổ quỷ tiền mặt";
+            this.brbtnTienMat.Enabled = false;
             this.brbtnTienMat.Id = 61;
             this.brbtnTienMat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("brbtnTienMat.ImageOptions.SvgImage")));
             this.brbtnTienMat.Name = "brbtnTienMat";

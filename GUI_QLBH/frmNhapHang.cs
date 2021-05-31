@@ -289,20 +289,21 @@ namespace GUI_QLBH
 
         private void mnuSua_Click(object sender, EventArgs e)
         {
-            int slgxoa, slgton, slgmoi, slgth;
-            float ttxoa, ttmoi, tthco, ttthem;
-            string ma = txtMaHD.Text;
-            string mahh = dtvHDNH.SelectedRows[0].Cells[0].Value.ToString();
-            slgxoa = BUS_QLBH.NhapHang.LaySlgXoa(mahh, ma);
-            slgton = BUS_QLBH.NhapHang.LaySlg(mahh);
-            slgth = Int32.Parse(mrcsoluong.Text);
-            slgmoi = (slgton - slgxoa) + slgth;
-            ttxoa = BUS_QLBH.NhapHang.LayTTXoa(mahh, ma);
-            tthco = BUS_QLBH.NhapHang.LayTongTien(ma);
-            ttthem = float.Parse(txtThanhTien.Text);
-            ttmoi = tthco - ttxoa + ttthem;
+            
             if (mrcsoluong.Text != "")
             {
+                int slgxoa, slgton, slgmoi, slgth;
+                float ttxoa, ttmoi, tthco, ttthem;
+                string ma = txtMaHD.Text;
+                string mahh = dtvHDNH.SelectedRows[0].Cells[0].Value.ToString();
+                slgxoa = BUS_QLBH.NhapHang.LaySlgXoa(mahh, ma);
+                slgton = BUS_QLBH.NhapHang.LaySlg(mahh);
+                slgth = Int32.Parse(mrcsoluong.Text);
+                slgmoi = (slgton - slgxoa) + slgth;
+                ttxoa = BUS_QLBH.NhapHang.LayTTXoa(mahh, ma);
+                tthco = BUS_QLBH.NhapHang.LayTongTien(ma);
+                ttthem = float.Parse(txtThanhTien.Text);
+                ttmoi = tthco - ttxoa + ttthem;
                 DTO_QLBH.ChiTietPN cthd = new DTO_QLBH.ChiTietPN
                 {
                     ma_phap = txtMaHD.Text,
@@ -348,6 +349,10 @@ namespace GUI_QLBH
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Chưa nhập số lượng?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            }    
         }
 
         private void btnInHoaDon_Click(object sender, EventArgs e)

@@ -1,0 +1,44 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=HDSuDung.chm
+Contents file=HDSuDung.hhc
+Index file=HDSuDung.hhk
+Binary Index=Yes
+Enhanced decompilation=Yes
+Full-text search=Yes
+Language=0x0409
+Title=HDSuDung
+Error log file=Errlog.txt
+Default Window=main
+
+[WINDOWS]
+main="HDSuDung","HDSuDung.hhc","HDSuDung.hhk","Help.htm","",,,,,0x41520,240,0x184E,[262,184,762,584],,,,0,0,0,0
+
+[FILES]
+Help.htm
+Help_files\header.htm
+Help_files\colorschememapping.xml
+Help_files\filelist.xml
+Help_files\image001.png
+Help_files\image002.png
+Help_files\image003.png
+Help_files\image004.png
+Help_files\image005.png
+Help_files\image006.png
+Help_files\image007.png
+Help_files\image008.png
+Help_files\image009.png
+Help_files\image010.png
+Help_files\image011.png
+Help_files\image012.png
+Help_files\image013.png
+Help_files\image014.png
+Help_files\image015.png
+Help_files\image016.png
+Help_files\image017.png
+Help_files\image018.png
+Help_files\image019.png
+Help_files\item0001.xml
+Help_files\props002.xml
+Help_files\themedata.thmx
+

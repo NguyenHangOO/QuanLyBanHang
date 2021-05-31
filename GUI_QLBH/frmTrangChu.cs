@@ -754,8 +754,9 @@ namespace GUI_QLBH
 
         private void brbtnHDSD_ItemClick(object sender, ItemClickEventArgs e)
         {
-           frmHelp hp = new frmHelp();
-            hp.ShowDialog();
+            //frmHelp hp = new frmHelp();
+            // hp.ShowDialog();
+            Help.ShowHelp(this, "file://E:\\NopBai\\Tam\\QuanLyBanHang\\HDSuDung\\HDSuDung.chm");
         }
     }
 }
