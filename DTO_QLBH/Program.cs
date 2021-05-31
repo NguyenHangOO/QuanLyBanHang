@@ -10,6 +10,7 @@ namespace DTO_QLBH
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

@@ -14,7 +14,7 @@ namespace ATO_QLBH
         /// The main entry point for the application.
         /// </summary>
 
-        private static SqlConnection connection;
+        public static SqlConnection connection;
         [STAThread]
         public static void Main()
         {
@@ -22,7 +22,7 @@ namespace ATO_QLBH
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Connection());
         }
-        private static SqlConnection cn
+        public static SqlConnection cn
         {
             get
             {
@@ -33,7 +33,7 @@ namespace ATO_QLBH
                 return connection;
             }
         }
-        private static void Close()
+        public static void Close()
         {
             if (connection.State == ConnectionState.Open)
                 connection.Close();
@@ -71,18 +71,6 @@ namespace ATO_QLBH
                 return false;
             }
         }
-        private static string _quyen = "admin";
-        public static string quyen{
-            set{ _quyen = value; }
-            get { return _quyen; }
-        }
-        private static int _id = 3;
-        public static int id
-        {
-            set { _id = value; }
-            get { return _id; }
-        }
-
-
+       
     }
 }

@@ -98,7 +98,7 @@ namespace ATO_QLBH
             cbbDatabase.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e)
         {
             if (loaddata() == false)
                 MessageBox.Show("Cannot connect to Database check " + ((ckbtnaccount.Checked) ? "account, password and server." : "server name."),"Connect",MessageBoxButtons.OK,MessageBoxIcon.Error);     
