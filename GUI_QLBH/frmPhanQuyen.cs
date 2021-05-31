@@ -17,7 +17,9 @@ namespace GUI_QLBH
         public frmPhanQuyen()
         {
             InitializeComponent();
-            luu_ChiTiet = BUS_QLBH.nhanvien.chitiet(frmDangNhap_Main.USERNAME);
+            luu_ChiTiet = BUS_QLBH.nhanvien.chitiet(frmDangNhap.USERNAME);
+            txtQH.Text = "1";
+            txtQH.Enabled = false;
         }
 
         private void frmPhanQuyen_Load(object sender, EventArgs e)
@@ -30,11 +32,11 @@ namespace GUI_QLBH
                 
             BUS_QLBH.nhanvien.getPhanQuyen(dtPhanQuyen);
             BUS_QLBH.nhanvien.getUSER(cboUser);
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -69,9 +71,10 @@ namespace GUI_QLBH
 
         private void btnSua_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             if (cboUser.SelectedValue.ToString() == "QuanLi")
             {
-                if (frmDangNhap_Main.USERNAME == "QuanLi")
+                if (frmDangNhap.USERNAME == "QuanLi")
                 {
                     DTO_QLBH.moilienhe pq1 = new DTO_QLBH.moilienhe
                     {
@@ -138,7 +141,7 @@ namespace GUI_QLBH
                 if (!BUS_QLBH.PhanQuyen.SuaMLH(pq))
                 {
                     MessageBox.Show("Sửa không thành công mối liên hệ?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                    BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "sửa mối liên hệ quyền nhân viên");
+                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "sửa mối liên hệ quyền nhân viên");
                 }
                 else
                 {
@@ -176,7 +179,7 @@ namespace GUI_QLBH
                     else
                     {
                         MessageBox.Show("Sửa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "sửa quyền nhân viên");
+                        BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "sửa quyền nhân viên");
                     }
                 }
             }
@@ -239,7 +242,7 @@ namespace GUI_QLBH
                             else
                             {
                                 MessageBox.Show("Thêm Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "thêm quyền cho nhân viên");
+                                BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "thêm quyền cho nhân viên");
                             }
                         }
                     }
@@ -289,7 +292,7 @@ namespace GUI_QLBH
                 }    
                 BUS_QLBH.nhanvien.getPhanQuyen(dtPhanQuyen);
                 MessageBox.Show("Đã xóa quyền nhân viên thành công.");
-                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "xóa quyền nhân viên");
+                BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xóa quyền nhân viên");
             }
         }
     }

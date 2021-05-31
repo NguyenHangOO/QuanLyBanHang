@@ -16,6 +16,7 @@ namespace GUI_QLBH
 {
     public partial class frmTrangChu : DevExpress.XtraBars.ToolbarForm.ToolbarForm
     {
+
         public frmTrangChu()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace GUI_QLBH
             brTime.Caption = dt.ToString();
             HTMenu();
             andoc();
-            luu_ChiTiet = BUS_QLBH.nhanvien.chitiet(frmDangNhap_Main.USERNAME);
+            luu_ChiTiet = BUS_QLBH.nhanvien.chitiet(frmDangNhap.USERNAME);
         }
         frmPhanQuyen pq;
         frmNhanVien nv;
@@ -123,6 +124,7 @@ namespace GUI_QLBH
                 btnMahoa.Enabled = true;
                 brbtnDSRPT.Enabled = true;
                 brbtnRestore.Enabled = true;
+                brbtnTKSQL.Enabled = true;
             }
             if(checkper("NV") == true)
             {
@@ -152,25 +154,25 @@ namespace GUI_QLBH
                 brbtnHangHoa.Enabled = true;
                 brbtnLHDN.Enabled = true;
             }
-            if (frmDangNhap_Main.USERNAME == "QuanLi")
+            if (frmDangNhap.USERNAME == "QuanLi")
             {
-                bhdLogin.Caption = frmDangNhap_Main.USERNAME + " (Admin)";
-                btnAccont.Caption = frmDangNhap_Main.USERNAME + " (Admin)";
+                bhdLogin.Caption = frmDangNhap.USERNAME + " (Admin)";
+                btnAccont.Caption = frmDangNhap.USERNAME + " (Admin)";
             }
             else
             {
-                bhdLogin.Caption = frmDangNhap_Main.USERNAME;
-                btnAccont.Caption = frmDangNhap_Main.USERNAME;
+                bhdLogin.Caption = frmDangNhap.USERNAME;
+                btnAccont.Caption = frmDangNhap.USERNAME;
             }
             dckKhuyenMai.Close();
             dckDSHD.Close();
             BUS_QLBH.KhachHang.getCLKH(cboMKH);
             dtvDSHD.RowHeadersVisible = false;
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -178,7 +180,7 @@ namespace GUI_QLBH
         }
         private void btnAccont_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmDangNhap_Main dn = new frmDangNhap_Main();
+            frmDangNhap dn = new frmDangNhap();
             this.Visible = false;
             dn.ShowDialog();
             
@@ -208,7 +210,7 @@ namespace GUI_QLBH
         private void frmTrangChu_FormClosing(object sender, FormClosingEventArgs e)
         {
             
-            BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "thoát chương trình");
+            BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "thoát chương trình");
             Application.Exit();
             
         }
@@ -258,7 +260,7 @@ namespace GUI_QLBH
 
         private void brbtnTK_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmDangNhap_Main dn = new frmDangNhap_Main();
+            frmDangNhap dn = new frmDangNhap();
             this.Visible = false;
             dn.ShowDialog();
         }
@@ -370,7 +372,7 @@ namespace GUI_QLBH
                         BUS_QLBH.KhachHang.getCLKH(cboMKH);
                         txtPT.ResetText();
                         txtTenKM.ResetText();
-                        BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "thêm khuyến mãi");
+                        BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "thêm khuyến mãi");
                     }
                 }
                 else
@@ -407,7 +409,7 @@ namespace GUI_QLBH
                         BUS_QLBH.KhachHang.getCLKH(cboMKH);
                         txtPT.ResetText();
                         txtTenKM.ResetText();
-                        BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "sửa khuyến mãi");
+                        BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "sửa khuyến mãi");
                     }
                 }
                 else
@@ -437,7 +439,7 @@ namespace GUI_QLBH
                     MessageBox.Show("Đã xóa khuyến mãi thành công.");
                     BUS_QLBH.KhuyenMai.getKM(dtvKM);
                     BUS_QLBH.KhachHang.getCLKH(cboMKH);
-                    BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "xóa khuyến mãi");
+                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xóa khuyến mãi");
                 }
 
             }
@@ -461,7 +463,7 @@ namespace GUI_QLBH
                 if (lskm == null)
                 {
                     MessageBox.Show("Không tìm khách hàng có mã: " + cboMKH.Text + " !");
-                    BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "tìm kiếm khách hàng");
+                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "tìm kiếm khách hàng");
                     return;
                 }
                 dtvKM.DataSource = lskm;
@@ -719,7 +721,7 @@ namespace GUI_QLBH
                 Directory.CreateDirectory(@"c:\SQLBackup");
             BUS_QLBH.Backup.BackUp();
             MessageBox.Show("Backup thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "backup dữ liệu");
+            BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "backup dữ liệu");
         }
 
         private void brbtnRestore_ItemClick(object sender, ItemClickEventArgs e)
@@ -754,9 +756,9 @@ namespace GUI_QLBH
 
         private void brbtnHDSD_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //frmHelp hp = new frmHelp();
+            // frmHelp hp = new frmHelp();
             // hp.ShowDialog();
-            Help.ShowHelp(this, "file://E:\\NopBai\\Tam\\QuanLyBanHang\\HDSuDung\\HDSuDung.chm");
+            Help.ShowHelp(this, "file://E:\\BanNhap\\QLBH\\HDSuDung\\HDSuDung.chm");
         }
     }
 }

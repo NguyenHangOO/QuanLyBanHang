@@ -79,7 +79,7 @@ namespace GUI_QLBH
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Thêm Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show("Đăng ký Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         this.Close();
                                     }
                                 }

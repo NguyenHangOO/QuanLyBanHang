@@ -16,8 +16,8 @@ namespace GUI_QLBH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new frmFash());
-            Application.Run(new frmDangNhap_Main());
+            Application.Run(new frmFash());
+            Application.Run(new frmDangNhap());
 
         }
     }

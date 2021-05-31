@@ -16,11 +16,11 @@ namespace GUI_QLBH
         public frmEditLoaiKH()
         {
             InitializeComponent();
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -55,7 +55,7 @@ namespace GUI_QLBH
                             else
                             {
                                 MessageBox.Show("Sửa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "sửa loại khách hàng");
+                                BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "sửa loại khách hàng");
                                 this.Dispose();
                             }
                         }

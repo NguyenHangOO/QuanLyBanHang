@@ -249,6 +249,7 @@ namespace ATO_QLBH
             }
             return HoLot+" "+Ten;
         }
+
     }
 
 }

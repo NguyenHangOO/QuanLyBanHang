@@ -16,11 +16,11 @@ namespace GUI_QLBH
         public frmIN()
         {
             InitializeComponent();
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -48,7 +48,7 @@ namespace GUI_QLBH
                 string ma = cboHD.Text;
                 string manh = ".";
                 frmInHoaDon ihd = new frmInHoaDon(ma, manh);
-                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "tìm và in hóa đơn bán");
+                BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "tìm và in hóa đơn bán");
                 ihd.ShowDialog();
             }
             else if (rdoNhap.Checked == true)
@@ -56,7 +56,7 @@ namespace GUI_QLBH
                 string ma = ".";
                 string manh = cboHD.Text; 
                 frmInHoaDon ihd = new frmInHoaDon(ma, manh);
-                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "tìm và in hóa đơn nhập ");
+                BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "tìm và in hóa đơn nhập ");
                 ihd.ShowDialog();
             }
             

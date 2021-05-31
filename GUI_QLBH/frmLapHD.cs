@@ -24,7 +24,7 @@ namespace GUI_QLBH
             //cboUser.Text = "";
             cboMaKH.Text = "";
             txtTongTien.Text = "0";
-            lblTongTien.Text = "..........";
+            //lblTongTien.Text = "..........";
             cboMaHang.Text = "";
             mrcsoluong.Text = "";
            // txtGiamGia.Text = "0";
@@ -32,11 +32,11 @@ namespace GUI_QLBH
         }
         private void frmLapHD_Load(object sender, EventArgs e)
         {
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -44,8 +44,8 @@ namespace GUI_QLBH
             //
             BUS_QLBH.SanPham.getCboSP(cboMaHang);
             BUS_QLBH.KhachHang.getCboKH(cboMaKH);
-            cboUser.Text = frmDangNhap_Main.USERNAME;
-            txtTenNV.Text = BUS_QLBH.nhanvien.LayTNV(frmDangNhap_Main.USERNAME);  
+            cboUser.Text = frmDangNhap.USERNAME;
+            txtTenNV.Text = BUS_QLBH.nhanvien.LayTNV(frmDangNhap.USERNAME);  
         }
         string tenquyen;
         private void cboMaKH_Click(object sender, EventArgs e)
@@ -176,7 +176,7 @@ namespace GUI_QLBH
                 {
                     ma_hd = txtMaHD.Text,
                     ma_kh = cboMaKH.SelectedValue + "",
-                    username = frmDangNhap_Main.USERNAME,
+                    username = frmDangNhap.USERNAME,
                     ngaylap = dtNgayBan.Text,
                     tongtien = float.Parse(txtTongTien.Text),
                     hinhthuc = ht,
@@ -255,9 +255,9 @@ namespace GUI_QLBH
             {
                 MessageBox.Show("Update tổng tiền không thành công?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             }
-            BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "lập hóa đơn bán");
+            BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "lập hóa đơn bán");
             txtTongTien.Text = Tongmoi.ToString();
-            lblTongTien.Text = Edit.ChuyenSoSangChu(Tongmoi.ToString());
+            //lblTongTien.Text = Edit.ChuyenSoSangChu(Tongmoi.ToString());
             ResetValuesHang();
             btnThem.Enabled = true;
             btnInHoaDon.Enabled = true;
@@ -315,7 +315,7 @@ namespace GUI_QLBH
                             txtTongTien.Text = ttmoi.ToString();
                             loadDLBH();
                             MessageBox.Show("Đã xóa sản phẩm thành công.");
-                            BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "xóa sản phẩm trên hóa đơn");
+                            BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xóa sản phẩm trên hóa đơn");
                         }
                     }
                 }
@@ -384,16 +384,15 @@ namespace GUI_QLBH
                             txtTongTien.Text = ttmoi.ToString();
                             loadDLBH();
                             MessageBox.Show("Đã sửa số lượng sản phẩm thành công.");
-                            BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "sửa số lượng sản phẩm");
+                            BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "sửa số lượng sản phẩm");
                         }
                         
                     }    
                 }
-            } 
-            else
-            {
-                MessageBox.Show("Chưa nhập số lượng?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             }
+            else
+                MessageBox.Show("Số lượng không được trống?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
         }
 
         private void dtvHDBH_Click(object sender, EventArgs e)

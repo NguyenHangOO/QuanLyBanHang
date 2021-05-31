@@ -195,6 +195,10 @@ namespace GUI_QLBH
             this.brbtnMaHoaa = new DevExpress.XtraBars.BarButtonItem();
             this.brbtnBaoCao = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.brCboGiaoDien = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.brCboGD = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.toolbarFormControl1 = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
             this.barDockControl5 = new DevExpress.XtraBars.BarDockControl();
             this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
@@ -245,6 +249,8 @@ namespace GUI_QLBH
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateTimeOffsetEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateTimeOffsetEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document4)).BeginInit();
@@ -411,13 +417,17 @@ namespace GUI_QLBH
             this.brbtnTienMat,
             this.brbtnDSRPT,
             this.barButtonItem2,
-            this.brbtnRestore});
+            this.brbtnRestore,
+            this.brCboGiaoDien,
+            this.brCboGD});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 65;
+            this.barManager1.MaxItemId = 67;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeEdit1,
             this.repositoryItemDateTimeOffsetEdit1,
-            this.repositoryItemDateTimeOffsetEdit2});
+            this.repositoryItemDateTimeOffsetEdit2,
+            this.repositoryItemComboBox1,
+            this.repositoryItemImageComboBox1});
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -480,6 +490,7 @@ namespace GUI_QLBH
             // brbtnTKSQL
             // 
             this.brbtnTKSQL.Caption = "Search";
+            this.brbtnTKSQL.Enabled = false;
             this.brbtnTKSQL.Hint = "Tìm kiếm SQL hóa đơn và chi tiết";
             this.brbtnTKSQL.Id = 39;
             this.brbtnTKSQL.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("brbtnTKSQL.ImageOptions.SvgImage")));
@@ -856,7 +867,7 @@ namespace GUI_QLBH
             this.dckPnlMenu.Controls.Add(this.controlContainer3);
             this.dckPnlMenu.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dckPnlMenu.ID = new System.Guid("c8a105f5-8b4b-49a3-9e53-3653ecb272e3");
-            this.dckPnlMenu.Location = new System.Drawing.Point(0, 0);
+            this.dckPnlMenu.Location = new System.Drawing.Point(26, 105);
             this.dckPnlMenu.Name = "dckPnlMenu";
             this.dckPnlMenu.OriginalSize = new System.Drawing.Size(230, 200);
             this.dckPnlMenu.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
@@ -1971,6 +1982,34 @@ namespace GUI_QLBH
             this.barButtonItem2.Id = 63;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
+            // brCboGiaoDien
+            // 
+            this.brCboGiaoDien.Caption = "Giao Diện";
+            this.brCboGiaoDien.Edit = this.repositoryItemComboBox1;
+            this.brCboGiaoDien.Id = 65;
+            this.brCboGiaoDien.Name = "brCboGiaoDien";
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // brCboGD
+            // 
+            this.brCboGD.Caption = "Giao Diện";
+            this.brCboGD.Edit = this.repositoryItemImageComboBox1;
+            this.brCboGD.Id = 66;
+            this.brCboGD.Name = "brCboGD";
+            // 
+            // repositoryItemImageComboBox1
+            // 
+            this.repositoryItemImageComboBox1.AutoHeight = false;
+            this.repositoryItemImageComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageComboBox1.Name = "repositoryItemImageComboBox1";
+            // 
             // toolbarFormControl1
             // 
             this.toolbarFormControl1.Location = new System.Drawing.Point(0, 0);
@@ -2122,6 +2161,8 @@ namespace GUI_QLBH
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateTimeOffsetEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateTimeOffsetEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.document4)).EndInit();
@@ -2305,5 +2346,9 @@ namespace GUI_QLBH
         private DevExpress.XtraBars.BarButtonItem brbtnDSRPT;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem brbtnRestore;
+        private DevExpress.XtraBars.BarEditItem brCboGiaoDien;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraBars.BarEditItem brCboGD;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox1;
     }
 }

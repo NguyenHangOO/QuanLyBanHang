@@ -40,12 +40,10 @@ namespace GUI_QLBH
             this.btnDong = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.cboMaHang = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lblTongTien = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtThanhTien = new DevExpress.XtraEditors.TextEdit();
             this.txtTongTien = new DevExpress.XtraEditors.TextEdit();
@@ -106,12 +104,10 @@ namespace GUI_QLBH
             this.grpMatHang.Controls.Add(this.btnDong);
             this.grpMatHang.Controls.Add(this.label10);
             this.grpMatHang.Controls.Add(this.cboMaHang);
-            this.grpMatHang.Controls.Add(this.label17);
             this.grpMatHang.Controls.Add(this.label18);
             this.grpMatHang.Controls.Add(this.label11);
             this.grpMatHang.Controls.Add(this.label14);
             this.grpMatHang.Controls.Add(this.label12);
-            this.grpMatHang.Controls.Add(this.lblTongTien);
             this.grpMatHang.Controls.Add(this.label13);
             this.grpMatHang.Controls.Add(this.txtThanhTien);
             this.grpMatHang.Controls.Add(this.txtTongTien);
@@ -230,18 +226,6 @@ namespace GUI_QLBH
             this.cboMaHang.TabIndex = 28;
             this.cboMaHang.TextChanged += new System.EventHandler(this.cboMaHang_Click);
             // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Blue;
-            this.label17.Location = new System.Drawing.Point(24, 308);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(85, 21);
-            this.label17.TabIndex = 24;
-            this.label17.Text = "Bằng chữ:";
-            // 
             // label18
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -290,18 +274,6 @@ namespace GUI_QLBH
             this.label12.Size = new System.Drawing.Size(73, 21);
             this.label12.TabIndex = 26;
             this.label12.Text = "Đơn giá:";
-            // 
-            // lblTongTien
-            // 
-            this.lblTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTongTien.AutoSize = true;
-            this.lblTongTien.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTien.ForeColor = System.Drawing.Color.Blue;
-            this.lblTongTien.Location = new System.Drawing.Point(110, 308);
-            this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(65, 21);
-            this.lblTongTien.TabIndex = 27;
-            this.lblTongTien.Text = "...........";
             // 
             // label13
             // 
@@ -610,7 +582,8 @@ namespace GUI_QLBH
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -671,12 +644,10 @@ namespace GUI_QLBH
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cboMaHang;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblTongTien;
         private System.Windows.Forms.Label label13;
         private DevExpress.XtraEditors.TextEdit txtThanhTien;
         private DevExpress.XtraEditors.TextEdit txtTongTien;

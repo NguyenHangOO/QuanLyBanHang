@@ -21,11 +21,11 @@ namespace GUI_QLBH
         private void frmNhaCungCap_Load(object sender, EventArgs e)
         {
             BUS_QLBH.NCC.getNCC(dtvNCC);
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -66,7 +66,7 @@ namespace GUI_QLBH
                     return;
                 }
                 dtvNCC.DataSource = lstkh;
-                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "tìm nhà cung cấp");
+                BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "tìm nhà cung cấp");
             }
             else MessageBox.Show("Vui lòng nhập thông tin tìm kiếm");
         }
@@ -106,7 +106,7 @@ namespace GUI_QLBH
                                 else
                                 {
                                     MessageBox.Show("Thêm Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "thêm nhà cung cấp");
+                                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "thêm nhà cung cấp");
                                     BUS_QLBH.NCC.getNCC(dtvNCC);
                                     resest();
                                 }
@@ -166,7 +166,7 @@ namespace GUI_QLBH
                                 else
                                 {
                                     MessageBox.Show("Sửa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "sửa nhà cung cấp");
+                                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "sửa nhà cung cấp");
                                     txtma.Enabled = true;
                                     resest();
                                     BUS_QLBH.NCC.getNCC(dtvNCC);
@@ -207,7 +207,7 @@ namespace GUI_QLBH
                 {
                     BUS_QLBH.NCC.getNCC(dtvNCC);
                     MessageBox.Show("Đã xóa nhà cung cấp thành công.");
-                    BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "xóa nhà cung cấp");
+                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xóa nhà cung cấp");
                 }
 
             }

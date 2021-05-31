@@ -23,11 +23,11 @@ namespace GUI_QLBH
         {
             BUS_QLBH.nhanvien.getNhanvien(dtNhanVien);
             cboTK.Text = "Username";
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -43,23 +43,54 @@ namespace GUI_QLBH
 
         private void btnXoa_ItemClick(object sender, ItemClickEventArgs e)
         {
+            
             string user = dtNhanVien.SelectedRows[0].Cells[7].Value.ToString();
-            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            if(user=="QuanLi")
             {
-                if (BUS_QLBH.nhanvien.TimTheoUser(user) == null)
+                if(frmDangNhap.USERNAME == "QuanLi")
                 {
-                    MessageBox.Show("Không tìm thấy nhân viên muốn xóa!");
-                    return;
+                    if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                    {
+                        if (BUS_QLBH.nhanvien.TimTheoUser(user) == null)
+                        {
+                            MessageBox.Show("Không tìm thấy nhân viên muốn xóa!");
+                            return;
+                        }
+                        if (!BUS_QLBH.nhanvien.XoaNhanVien(user))
+                        {
+                            MessageBox.Show("Không Xóa được. Do còn quyền hạn nhân viên");
+                            return;
+                        }
+                        BUS_QLBH.nhanvien.getNhanvien(dtNhanVien);
+                        MessageBox.Show("Đã xóa nhân viên thành công.");
+                        BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xóa nhân viên");
+                    }
                 }
-                if (!BUS_QLBH.nhanvien.XoaNhanVien(user))
+                else
                 {
-                    MessageBox.Show("Không Xóa được. Do còn quyền hạn nhân viên");
-                    return;
+                    MessageBox.Show("Bạn không có quyền xóa UserName này?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                }    
+            }
+            else
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                {
+                    if (BUS_QLBH.nhanvien.TimTheoUser(user) == null)
+                    {
+                        MessageBox.Show("Không tìm thấy nhân viên muốn xóa!");
+                        return;
+                    }
+                    if (!BUS_QLBH.nhanvien.XoaNhanVien(user))
+                    {
+                        MessageBox.Show("Không Xóa được. Do còn quyền hạn nhân viên");
+                        return;
+                    }
+                    BUS_QLBH.nhanvien.getNhanvien(dtNhanVien);
+                    MessageBox.Show("Đã xóa nhân viên thành công.");
+                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xóa nhân viên");
                 }
-                BUS_QLBH.nhanvien.getNhanvien(dtNhanVien);
-                MessageBox.Show("Đã xóa nhân viên thành công.");
-                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "xóa nhân viên");
-            } 
+            }    
+            
         }
 
         private void btnTK_Click(object sender, EventArgs e)
@@ -84,23 +115,49 @@ namespace GUI_QLBH
                     return;
                 }
                 dtNhanVien.DataSource = lstnv;
-                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "tìm nhân viên");
+                BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "tìm nhân viên");
             }    
         }
 
         private void btnSua_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string holot = dtNhanVien.SelectedRows[0].Cells[0].Value.ToString();
-            string ten = dtNhanVien.SelectedRows[0].Cells[1].Value.ToString();
-            string ngaysinh = dtNhanVien.SelectedRows[0].Cells[2].Value.ToString();
-            string gt = dtNhanVien.SelectedRows[0].Cells[3].Value.ToString();
-            string sdt = dtNhanVien.SelectedRows[0].Cells[4].Value.ToString();
-            string dc = dtNhanVien.SelectedRows[0].Cells[5].Value.ToString();
-            string luong = dtNhanVien.SelectedRows[0].Cells[6].Value.ToString();
-            string user = dtNhanVien.SelectedRows[0].Cells[7].Value.ToString();
-            string pass = dtNhanVien.SelectedRows[0].Cells[8].Value.ToString();
-            frmEditNhanVien tnv = new frmEditNhanVien(holot,ten,user,pass,ngaysinh,gt,sdt,dc,luong);
-            tnv.ShowDialog();
+            string user1 = dtNhanVien.SelectedRows[0].Cells[7].Value.ToString();
+            if (user1 == "QuanLi")
+            {
+                if (frmDangNhap.USERNAME == "QuanLi")
+                {
+                    string holot = dtNhanVien.SelectedRows[0].Cells[0].Value.ToString();
+                    string ten = dtNhanVien.SelectedRows[0].Cells[1].Value.ToString();
+                    string ngaysinh = dtNhanVien.SelectedRows[0].Cells[2].Value.ToString();
+                    string gt = dtNhanVien.SelectedRows[0].Cells[3].Value.ToString();
+                    string sdt = dtNhanVien.SelectedRows[0].Cells[4].Value.ToString();
+                    string dc = dtNhanVien.SelectedRows[0].Cells[5].Value.ToString();
+                    string luong = dtNhanVien.SelectedRows[0].Cells[6].Value.ToString();
+                    string user = dtNhanVien.SelectedRows[0].Cells[7].Value.ToString();
+                    string pass = dtNhanVien.SelectedRows[0].Cells[8].Value.ToString();
+                    frmEditNhanVien tnv = new frmEditNhanVien(holot, ten, user, pass, ngaysinh, gt, sdt, dc, luong);
+                    tnv.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn không có quyền sửa UserName này?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                string holot = dtNhanVien.SelectedRows[0].Cells[0].Value.ToString();
+                string ten = dtNhanVien.SelectedRows[0].Cells[1].Value.ToString();
+                string ngaysinh = dtNhanVien.SelectedRows[0].Cells[2].Value.ToString();
+                string gt = dtNhanVien.SelectedRows[0].Cells[3].Value.ToString();
+                string sdt = dtNhanVien.SelectedRows[0].Cells[4].Value.ToString();
+                string dc = dtNhanVien.SelectedRows[0].Cells[5].Value.ToString();
+                string luong = dtNhanVien.SelectedRows[0].Cells[6].Value.ToString();
+                string user = dtNhanVien.SelectedRows[0].Cells[7].Value.ToString();
+                string pass = dtNhanVien.SelectedRows[0].Cells[8].Value.ToString();
+                frmEditNhanVien tnv = new frmEditNhanVien(holot, ten, user, pass, ngaysinh, gt, sdt, dc, luong);
+                tnv.ShowDialog();
+            }
+            
         }
 
         private void btnRefresh_ItemClick(object sender, ItemClickEventArgs e)

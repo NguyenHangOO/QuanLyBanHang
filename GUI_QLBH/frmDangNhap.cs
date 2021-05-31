@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,15 +12,20 @@ using System.Windows.Forms;
 
 namespace GUI_QLBH
 {
-    public partial class frmDangNhap_Main : Form
+    public partial class frmDangNhap : DevExpress.XtraBars.ToolbarForm.ToolbarForm
     {
-        public frmDangNhap_Main()
+        public frmDangNhap()
         {
             InitializeComponent();
+            //frmFash flash = new frmFash();
+            //flash.ShowDialog();
         }
 
-        private void frmDangNhap_Main_Load(object sender, EventArgs e)
+        private void frmDangNhap_Load(object sender, EventArgs e)
         {
+            Edit.chinhanh(prcLogin);
+            Edit.chinhanh(prcUser);
+            Edit.chinhanh(prcPass);
             txtUser.ForeColor = Color.LightGray;
             txtUser.Text = "Username";
             this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
@@ -29,6 +35,7 @@ namespace GUI_QLBH
             txtPass.Text = "Password";
             this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
+            
         }
         private void txtUser_Leave(object sender, EventArgs e)
         {
@@ -62,37 +69,36 @@ namespace GUI_QLBH
                 txtPass.Text = "";
                 txtPass.ForeColor = Color.Gray;
                 // this.txtPass.PasswordChar = '*';
+                this.txtPass.Properties.UseSystemPasswordChar = true;
             }
         }
-
-        private void prcLogin_Click(object sender, EventArgs e)
+        private void btnConnect_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Process.Start("Connection.exe");
         }
         public static string USERNAME = "";
-
+        
         private void btnDN_Click(object sender, EventArgs e)
         {
             string tenquyen = "";
-            if (txtUser.Text != "" && txtPass.Text != "")
+            if(txtUser.Text !="" && txtPass.Text !="")
             {
                 USERNAME = BUS_QLBH.nhanvien.GetID(txtUser.Text, DTO_QLBH.Encode.Encrypt(txtPass.Text));
                 if (USERNAME != "")
                 {
-                    if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
+                    if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME)=="3")
                     {
                         tenquyen = "Quản trị";
-                    }
-                    else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
+                    } 
+                    else if(BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
                     {
                         tenquyen = "Quản lý";
-                    }
-                    else tenquyen = "Nhân viên";
+                    }   else tenquyen = "Nhân viên";
                     frmTrangChu tc = new frmTrangChu();
                     this.Visible = false;
-                    MessageBox.Show("Xin chào user có tên: " + frmDangNhap.USERNAME.Trim() + " - thuộc nhóm quyền: " + tenquyen, "Thông báo");
-                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "đăng nhập vào hệ thống"); //nhập vô 3 cái chuỗi 1 là tên user 2 là quyền 3 là việc đang làm
-                    tc.ShowDialog();
+                    MessageBox.Show("Xin chào user có tên: "+frmDangNhap.USERNAME.Trim()+" - thuộc nhóm quyền: "+ tenquyen, "Thông báo");
+                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME,tenquyen,"đăng nhập vào hệ thống"); //nhập vô 3 cái chuỗi 1 là tên user 2 là quyền 3 là việc đang làm
+                    tc.ShowDialog();  
                 }
                 else
                 {
@@ -102,7 +108,7 @@ namespace GUI_QLBH
                 txtUser.ResetText();
                 txtPass.ResetText();
                 txtUser.Focus();
-            }
+            }    
             else
                 MessageBox.Show("Vui lòng điền thông tin đăng nhập !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
@@ -110,19 +116,20 @@ namespace GUI_QLBH
         private void chkHien_CheckedChanged(object sender, EventArgs e)
         {
             if (chkHien.Checked)
-                txtPass.UseSystemPasswordChar = true;
+                txtPass.Properties.UseSystemPasswordChar = false;
             else
-                txtPass.UseSystemPasswordChar = false;
+                txtPass.Properties.UseSystemPasswordChar = true;
         }
 
-        private void lnkDK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkDK_Click(object sender, EventArgs e)
         {
             new frmDangKy().ShowDialog();
         }
 
-        private void frmDangNhap_Main_KeyDown(object sender, KeyEventArgs e)
+        private void frmDangNhap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) Close();
         }
+
     }
 }

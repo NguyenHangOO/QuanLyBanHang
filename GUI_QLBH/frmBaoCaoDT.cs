@@ -16,11 +16,11 @@ namespace GUI_QLBH
         public frmBaoCaoDT()
         {
             InitializeComponent();
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -45,7 +45,7 @@ namespace GUI_QLBH
             rptIn.DataSource = BUS_QLBH.BaoCao.DoanhThuVao(lblTN.Text, lblDN.Text, lblL.Text, lblNL.Text);
             // dcVewHoaDonban.PrintingSystem = rptIn.PrintingSystem;
             rptIn.CreateDocument();
-            BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "xem doanh thu");
+            BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xem doanh thu");
             docViewDoanhThu.DocumentSource = rptIn;           
         }
     }

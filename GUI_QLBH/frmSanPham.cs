@@ -16,12 +16,12 @@ namespace GUI_QLBH
         public frmSanPham()
         {
             InitializeComponent();
-            luu_ChiTiet = BUS_QLBH.nhanvien.chitiet(frmDangNhap_Main.USERNAME);
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            luu_ChiTiet = BUS_QLBH.nhanvien.chitiet(frmDangNhap.USERNAME);
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -133,7 +133,7 @@ namespace GUI_QLBH
                         else
                         {
                             MessageBox.Show("Thêm Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "thêm sản phẩm");
+                            BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "thêm sản phẩm");
                             BUS_QLBH.SanPham.getSP(dtvSp);
                             reset();
                         }
@@ -181,7 +181,7 @@ namespace GUI_QLBH
                         else
                         {
                             MessageBox.Show("Sửa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "sửa sản phẩm");
+                            BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "sửa sản phẩm");
                             BUS_QLBH.SanPham.getSP(dtvSp);
                             reset();
                             txtMaHang.Enabled = true;
@@ -214,7 +214,7 @@ namespace GUI_QLBH
                 {
                     BUS_QLBH.SanPham.getSP(dtvSp);
                     MessageBox.Show("Đã xóa sản phẩm thành công.");
-                    BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "xóa sản phẩm");
+                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xóa sản phẩm");
                 }
 
             }

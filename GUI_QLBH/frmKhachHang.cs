@@ -21,11 +21,11 @@ namespace GUI_QLBH
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             //dckPnlLKH.Close();
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
@@ -104,7 +104,7 @@ namespace GUI_QLBH
         private void mnuDelete_Click(object sender, EventArgs e)
         {
             string ma = dtvLoaiKH.SelectedRows[0].Cells[0].Value.ToString();
-            if (MessageBox.Show("Bạn có chắc muốn xóa loại khách hàng này không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc muốn xóa loại khách hàng này?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
             {
                 
                 if (!BUS_QLBH.KhachHang.Xoa_LKH(ma))
@@ -117,7 +117,7 @@ namespace GUI_QLBH
                     BUS_QLBH.KhachHang.getLoaiKH(dtvLoaiKH);
                     BUS_QLBH.KhachHang.getCLKH(cboLKH);
                     MessageBox.Show("Đã xóa loại khách hàng thành công.");
-                    BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "Xóa loại khách hàng");
+                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xóa loại khách hàng");
                 }
                
             }
@@ -127,7 +127,7 @@ namespace GUI_QLBH
         {
             if (txtMa.Text == "" || txtHoTen.Text == "" || txtDiaChi.Text == "" || txtSDT.Text == "" )
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập đủ thông tin !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -163,7 +163,7 @@ namespace GUI_QLBH
                             else
                             {
                                 MessageBox.Show("Thêm Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "thêm khách hàng");
+                                BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "thêm khách hàng");
                                 BUS_QLBH.KhachHang.getKH(dtvKhachHang);
                                 restText();
                             }
@@ -239,7 +239,7 @@ namespace GUI_QLBH
                             else
                             {
                                 MessageBox.Show("Sửa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "sửa khách hàng");
+                                BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "sửa khách hàng");
                                 txtMa.Enabled = true;
                                 restText();
                                 BUS_QLBH.KhachHang.getKH(dtvKhachHang);
@@ -274,7 +274,7 @@ namespace GUI_QLBH
                 {
                     BUS_QLBH.KhachHang.getKH(dtvKhachHang);
                     MessageBox.Show("Đã xóa khách hàng thành công.");
-                    BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "xóa khách hàng");
+                    BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "xóa khách hàng");
                 }
 
             }

@@ -91,7 +91,7 @@ namespace GUI_QLBH
             // xrLabel5
             // 
             this.xrLabel5.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Today()")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Now()")});
             this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(471.6667F, 137.6666F);
             this.xrLabel5.Multiline = true;
             this.xrLabel5.Name = "xrLabel5";
@@ -138,7 +138,7 @@ namespace GUI_QLBH
             this.xlblMaHD.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xlblMaHD.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xlblMaHD.StylePriority.UseTextAlignment = false;
-            this.xlblMaHD.Text = "Danh thu:";
+            this.xlblMaHD.Text = "Doanh thu:";
             this.xlblMaHD.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel2

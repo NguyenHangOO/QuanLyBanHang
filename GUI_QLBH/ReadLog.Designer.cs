@@ -37,10 +37,11 @@ namespace GUI_QLBH
             // cbbfile
             // 
             this.cbbfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbfile.FormattingEnabled = true;
             this.cbbfile.Location = new System.Drawing.Point(7, 13);
             this.cbbfile.Name = "cbbfile";
-            this.cbbfile.Size = new System.Drawing.Size(783, 24);
+            this.cbbfile.Size = new System.Drawing.Size(783, 28);
             this.cbbfile.TabIndex = 1;
             this.cbbfile.SelectedIndexChanged += new System.EventHandler(this.cbbfile_SelectedIndexChanged);
             // 

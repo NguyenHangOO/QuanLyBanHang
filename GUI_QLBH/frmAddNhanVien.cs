@@ -70,7 +70,7 @@ namespace GUI_QLBH
                                     else
                                     {
                                         MessageBox.Show("Thêm Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "thêm nhân viên");
+                                        BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "thêm nhân viên");
                                         this.Dispose();
                                     }
                                 }
@@ -148,7 +148,7 @@ namespace GUI_QLBH
                                     else
                                     {
                                         MessageBox.Show("Thêm Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "thêm nhân viên");
+                                        BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "thêm nhân viên");
                                         this.Dispose();
                                     }
                                 }
@@ -183,16 +183,16 @@ namespace GUI_QLBH
 
         private void frmAddNhanVien_Load(object sender, EventArgs e)
         {
-            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "3")
+            if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "3")
             {
                 tenquyen = "Quản trị";
             }
-            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap_Main.USERNAME) == "2")
+            else if (BUS_QLBH.nhanvien.QuyenHan(frmDangNhap.USERNAME) == "2")
             {
                 tenquyen = "Quản lý";
             }
             else tenquyen = "Nhân viên";
-            //BUS_QLBH.WriteLog.Write(frmDangNhap_Main.USERNAME, tenquyen, "thêm khuyến mãi");
+            //BUS_QLBH.WriteLog.Write(frmDangNhap.USERNAME, tenquyen, "thêm khuyến mãi");
         }
 
         /// <summary>
